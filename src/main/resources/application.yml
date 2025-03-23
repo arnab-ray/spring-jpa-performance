@@ -8,14 +8,21 @@ spring:
     hibernate.ddl-auto: create
     show-sql: true
 #    open-in-view: false
+    properties:
+      hibernate.generate_statistics: false
+      hibernate.cache.user_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      hibernate.session.events.log.LOG_QUERIES_SLOWER_THAN_MS=1:
   sql:
     init:
       mode: always
 
 decorator:
-  datasource:
-    flexy-pool:
-      threshold:
-        connection:
-          acquire: -1
-          lease: 0
+  datasource.flexy-pool.threshold.connection.acquire: -1
+  datasource.flexy-pool.threshold.connection.lease: 0
+
+logging:
+  level.org.hibernate.stat: DEBUG
+  level.org.hibernate.SQL: DEBUG
+  level.org.hibernate.cache: DEBUG
+

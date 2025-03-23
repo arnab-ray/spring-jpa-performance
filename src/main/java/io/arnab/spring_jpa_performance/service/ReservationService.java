@@ -23,6 +23,7 @@ public class ReservationService {
         this.skuRepository = skuRepository;
     }
 
+    // A case to highlight projections in spring data
     public List<ReservationDTO> getReservations(String customerId) {
         var reservations = reservationOrderRepository.findByCustomerId(customerId);
         return reservations.stream()
