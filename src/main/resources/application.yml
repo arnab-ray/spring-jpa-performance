@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: spring-jpa-performance
+#  datasource:
+#    hikari:
+#      auto-commit: false
+  jpa:
+    hibernate.ddl-auto: create
+    show-sql: true
+#    open-in-view: false
+  sql:
+    init:
+      mode: always
+
+decorator:
+  datasource:
+    flexy-pool:
+      threshold:
+        connection:
+          acquire: -1
+          lease: 0
