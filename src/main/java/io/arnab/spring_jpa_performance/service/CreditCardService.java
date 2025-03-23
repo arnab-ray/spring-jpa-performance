@@ -18,7 +18,7 @@ public class CreditCardService {
         // By default, many-to-one relation is set to EAGER evaluation, so when this query
         // executes, it fetches customer information which is not required. So we should
         // set fetch type to LAZY to prevent unnecessary query.
-        var creditCard = creditCardRepository.findById(creditCardNumber).orElseThrow();
+        var creditCard = creditCardRepository.findByIdOrElseThrow(creditCardNumber);
         creditCard.deactivate();
         // This save call is unnecessary
         creditCardRepository.save(creditCard);

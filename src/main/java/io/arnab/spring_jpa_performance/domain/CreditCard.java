@@ -16,7 +16,7 @@ public class CreditCard {
     @Id
     private String id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Customer customer;
 
     @Enumerated(EnumType.STRING)
