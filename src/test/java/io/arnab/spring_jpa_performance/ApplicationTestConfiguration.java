@@ -26,10 +26,13 @@ public class ApplicationTestConfiguration {
             CustomerRepository customerRepository,
             SkuRepository skuRepository,
             ReservationItemRepository reservationItemRepository,
-            ReservationOrderRepository reservationOrderRepository) {
+            ReservationOrderRepository reservationOrderRepository, CreditCardRepository creditCardRepository) {
         return args -> {
             var customer = new Customer("USR01", "Soorma", "Bhopali", new MobileNumber("9028796769"));
             customerRepository.save(customer);
+
+            var creditCard = new CreditCard("CC01", customer);
+            creditCardRepository.save(creditCard);
 
             List<ReservationItem> items = new ArrayList<>();
             for (int i = 0; i < 10; i++) {

@@ -6,43 +6,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class ReservationService {
     private final ReservationOrderRepository reservationOrderRepository;
-    private final CustomerRepository customerRepository;
-    private final SkuRepository skuRepository;
 
-    public ReservationService(
-            ReservationOrderRepository reservationOrderRepository,
-            CustomerRepository customerRepository,
-            SkuRepository skuRepository) {
+    public ReservationService(ReservationOrderRepository reservationOrderRepository) {
         this.reservationOrderRepository = reservationOrderRepository;
-        this.customerRepository = customerRepository;
-        this.skuRepository = skuRepository;
-    }
-
-    // A case to highlight projections in spring data
-    public List<ReservationDTO> getReservations(String customerId) {
-        var reservations = reservationOrderRepository.findByCustomerId(customerId);
-        return reservations.stream()
-                .map(it -> new ReservationDTO(it.getId(), it.getState()))
-                .toList();
-    }
-
-    public void createReservation(String customerId, Map<String, Integer> skuQuantity) {
-        System.out.println(skuRepository.findAll());
-        var customer = customerRepository.findById(customerId).orElseThrow();
-
-        var reservationItems = skuQuantity.entrySet()
-                .stream()
-                .map(e -> {
-                    var sku = skuRepository.findByTitle(e.getKey()).orElseThrow();
-                    return new ReservationItem(sku, e.getValue());
-                }).toList();
-        var reservation = new ReservationOrder("RS09", customer, reservationItems);
-        reservationOrderRepository.save(reservation);
     }
 
     // A case to highlight EAGER/LAZY evaluation trade-offs
@@ -55,6 +25,14 @@ public class ReservationService {
         reservation.cancel();
         // This save call is unnecessary
         reservationOrderRepository.save(reservation);
+    }
+
+    // A case to highlight projections in spring data
+    public List<ReservationDTO> getReservations(String customerId) {
+        var reservations = reservationOrderRepository.findByCustomerId(customerId);
+        return reservations.stream()
+                .map(it -> new ReservationDTO(it.getId(), it.getState()))
+                .toList();
     }
 
     @Transactional

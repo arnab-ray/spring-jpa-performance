@@ -15,9 +15,6 @@ public class ReservationItem {
     @ManyToOne
     private Sku sku;
 
-    @ManyToOne
-    private ReservationOrder reservationOrder;
-
     private Integer quantity;
 
     public ReservationItem() {}

@@ -21,8 +21,8 @@ decorator:
   datasource.flexy-pool.threshold.connection.acquire: -1
   datasource.flexy-pool.threshold.connection.lease: 0
 
-logging:
-  level.org.hibernate.stat: DEBUG
-  level.org.hibernate.SQL: DEBUG
-  level.org.hibernate.cache: DEBUG
+#logging:
+#  level.org.hibernate.stat: DEBUG
+#  level.org.hibernate.SQL: DEBUG
+#  level.org.hibernate.cache: DEBUG
 
