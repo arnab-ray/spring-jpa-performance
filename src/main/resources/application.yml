@@ -12,7 +12,8 @@ spring:
       hibernate.generate_statistics: false
       hibernate.cache.user_second_level_cache: false
       hibernate.cache.use_query_cache: false
-      hibernate.session.events.log.LOG_QUERIES_SLOWER_THAN_MS=1:
+      hibernate.session.events.log.LOG_QUERIES_SLOWER_THAN_MS: 1
+#      hibernate.enable_lazy_load_no_trans: true
   sql:
     init:
       mode: always

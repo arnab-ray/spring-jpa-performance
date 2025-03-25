@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.utility.DockerImageName;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @TestConfiguration(proxyBeanMethods = false)
@@ -23,25 +22,17 @@ public class ApplicationTestConfiguration {
 
     @Bean
     ApplicationRunner applicationRunner(
-            CustomerRepository customerRepository,
-            SkuRepository skuRepository,
-            ReservationItemRepository reservationItemRepository,
-            ReservationOrderRepository reservationOrderRepository, CreditCardRepository creditCardRepository) {
+            CustomerRepository customerRepository, CreditCardRepository creditCardRepository) {
         return args -> {
             var customer = new Customer("USR01", "Soorma", "Bhopali", new MobileNumber("9028796769"));
+
+            var creditCards = List.of(
+                    new CreditCard("CC01", "AMEX", customer),
+                    new CreditCard("CC02", "VISA", customer));
+
+            customer.setCreditCards(creditCards);
             customerRepository.save(customer);
-
-            var creditCard = new CreditCard("CC01", "AMEX", customer);
-            creditCardRepository.save(creditCard);
-
-            List<ReservationItem> items = new ArrayList<>();
-            for (int i = 0; i < 10; i++) {
-                var sku = skuRepository.save(new Sku("sku-" + i));
-                var reservationItem = reservationItemRepository.save(new ReservationItem(sku, 1));
-                items.add(reservationItem);
-            }
-            var reservation = new ReservationOrder("RS01", customer, items);
-            reservationOrderRepository.save(reservation);
+            creditCardRepository.saveAll(creditCards);
         };
     }
 

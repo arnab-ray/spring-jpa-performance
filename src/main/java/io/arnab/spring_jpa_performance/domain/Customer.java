@@ -9,6 +9,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
@@ -29,6 +30,9 @@ public class Customer implements Serializable {
             @AttributeOverride(name = "value", column = @Column(name = "mobile_number"))
     })
     private MobileNumber mobileNumber;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    private List<CreditCard> creditCards;
 
     @CreationTimestamp
     @JsonProperty("created_at")

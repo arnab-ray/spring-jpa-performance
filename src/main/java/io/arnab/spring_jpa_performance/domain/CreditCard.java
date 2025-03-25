@@ -19,6 +19,7 @@ public class CreditCard {
     private String issuer;
 
     @ManyToOne
+    @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
     @Enumerated(EnumType.STRING)

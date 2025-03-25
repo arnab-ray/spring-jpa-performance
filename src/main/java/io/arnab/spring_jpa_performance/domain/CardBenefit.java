@@ -18,7 +18,7 @@ public class CardBenefit {
     @UuidGenerator
     private String id;
 
-    @ManyToOne
+    @OneToOne
     private Customer customer;
 
     @OneToOne
