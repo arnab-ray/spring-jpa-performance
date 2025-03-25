@@ -16,7 +16,9 @@ public class CreditCard {
     @Id
     private String id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    private String issuer;
+
+    @ManyToOne
     private Customer customer;
 
     @Enumerated(EnumType.STRING)
@@ -38,8 +40,9 @@ public class CreditCard {
         this.state = CardState.DEACTIVATED;
     }
 
-    public CreditCard(String id, Customer customer) {
+    public CreditCard(String id, String issuer, Customer customer) {
         this.id = id;
+        this.issuer = issuer;
         this.customer = customer;
         this.state = CardState.ACTIVATED;
     }

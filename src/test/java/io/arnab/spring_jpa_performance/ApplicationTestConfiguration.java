@@ -31,7 +31,7 @@ public class ApplicationTestConfiguration {
             var customer = new Customer("USR01", "Soorma", "Bhopali", new MobileNumber("9028796769"));
             customerRepository.save(customer);
 
-            var creditCard = new CreditCard("CC01", customer);
+            var creditCard = new CreditCard("CC01", "AMEX", customer);
             creditCardRepository.save(creditCard);
 
             List<ReservationItem> items = new ArrayList<>();
