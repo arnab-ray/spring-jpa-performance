@@ -33,10 +33,5 @@ public class CreditCardService {
             var creditCard = creditCardRepository.findByIdOrElseThrow(it);
             return new CreditCardDTO(creditCard.getId(), creditCard.getIssuer());
         }).toList();
-
-//        var creditCards = creditCardRepository.findByIdOrElseThrow(customerId);
-//        return creditCards.stream()
-//                .map(it -> new CreditCardDTO(it.getId()))
-//                .toList();
     }
 }
