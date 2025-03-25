@@ -1,3 +1,3 @@
 # spring-jpa-performance
 
-![Springboot data access](../../Desktop/Screenshot%202025-03-25%20at%208.55.28%E2%80%AFPM.png)
+<img width="539" alt="Screenshot 2025-03-25 at 8 55 28 PM" src="https://github.com/user-attachments/assets/11514d1d-84f3-4ba5-b7fc-88f7dcaffa83" />
