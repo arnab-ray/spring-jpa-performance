@@ -1,17 +1,37 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: spring-jpa-performance
-#  datasource:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:26257/jpa_performance?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&currentSchema=public&sslmode=disable
+    username: root
+    password:
 #    hikari:
 #      auto-commit: false
   jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate.ddl-auto: create
     show-sql: true
 #    open-in-view: false
+    hibernate:
+      ddl-auto: update
+      naming.physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoreNamingStrategy
+      generate_statistics: true
+      format_sql: true
     properties:
-      hibernate.generate_statistics: false
       hibernate.cache.user_second_level_cache: false
       hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: true
+      org.hibernate.envers.audit_table_suffix: _history
+      hibernate.jdbc.time_zone: Asia/Kolkata
+#      hibernate.jdbc.batch_size: 4
+#      hibernate.order_inserts: true
+#      hibernate.order_updates: true
+#      hibernate.batch_versioned_data: true
+      hibernate.format_sql: true
       hibernate.session.events.log.LOG_QUERIES_SLOWER_THAN_MS: 1
 #      hibernate.enable_lazy_load_no_trans: true
   sql:

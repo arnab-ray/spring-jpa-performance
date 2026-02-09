@@ -21,12 +21,12 @@ public class CustomerController {
         this.notificationService = notificationService;
     }
 
+    // Under default setting, the DB connection is not released as soon as
+    // the transaction block is over. The connection remains open until the
+    // http request is served. To disable this, we should check the open-in-view
+    // flag.
     @PostMapping(value = "/v1", consumes = "application/json")
     public void createAccount(@RequestBody CreateCustomerDTO createCustomerDTO) {
-        // Under default setting, the DB connection is not released as soon as
-        // the transaction block is over. The connection remains open until the
-        // http request is served. To disable this, we should check the open-in-view
-        // flag.
         var mobileNumber = new MobileNumber(createCustomerDTO.mobileNumber());
         customerOnboardingService.createAccount(createCustomerDTO);
         notificationService.notifyOnboarded(mobileNumber);
