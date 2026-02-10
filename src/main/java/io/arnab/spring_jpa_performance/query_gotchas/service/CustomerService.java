@@ -22,7 +22,7 @@ public class CustomerService {
     // Hibernate creates a dynamic Proxy Object subclass that will hit the database only when we first use the
     // object.
     // This error occurs when we try to fetch a lazy-loaded object from the database by using a proxy object, but the Hibernate session is already closed.
-    public List<CreditCardDTO> customerCreditCards(String customerId) {
+    public List<CreditCardDTO> getCreditCardsOfCustomer(String customerId) {
         var customer = customerRepository.findByIdOrElseThrow(customerId);
         return customer.getCreditCards()
                 .stream()

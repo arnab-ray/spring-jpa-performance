@@ -12,13 +12,12 @@ spring:
       minimum-idle: 5
       max-lifetime: 1800000
       ddl-auto: validate
-
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     #open-in-view: false
+    show-sql: true
     hibernate:
       ddl-auto: create-drop
-    show-sql: false
     properties:
       hibernate.dialect: org.hibernate.dialect.H2Dialect
       hibernate.hbm2ddl.auto: create-drop
@@ -28,6 +27,7 @@ spring:
       hibernate.cache.use_second_level_cache: false
       hibernate.cache.use_query_cache: false
       hibernate.generate_statistics: false
+      hibernate.highlight_sql: true
       jakarta.persistence.query.timeout: 5000
       org.hibernate.envers.audit_table_suffix: _history
       hibernate.jdbc.time_zone: Asia/Kolkata
@@ -35,6 +35,7 @@ spring:
 #      hibernate.order_inserts: true
 #      hibernate.order_updates: true
 #      hibernate.batch_versioned_data: true
+#      hibernate.enable_lazy_load_no_trans: true
 
   h2:
     console:
@@ -44,19 +45,19 @@ spring:
         trace: false
         web-allow-others: false
 
-decorator:
-  datasource.flexy-pool.threshold.connection.acquire: -1
-  datasource.flexy-pool.threshold.connection.lease: 0
+#decorator:
+#  datasource.flexy-pool.threshold.connection.acquire: -1
+#  datasource.flexy-pool.threshold.connection.lease: 0
 
-logging:
-  level:
-    #org.hibernate.stat: DEBUG
-    org.hibernate.SQL: DEBUG
-    org.hibernate.cache: DEBUG
-    #org.springframework.jdbc.core.JdbcTemplate: DEBUG
-    #org.springframework.jdbc.core.StatementCreatorUtils: DEBUG
-    #org.springframework.transaction: DEBUG
-    #org.hibernate.type.descriptor.sql.BasicBinder: DEBUG
-    org.hibernate.engine.transaction.internal.TransactionImpl: DEBUG
-    #level.net.ttddyy.dsproxy.listener: DEBUG
-    #net.ttddyy.dsproxy.listener.logging.SLF4JQueryLoggingListener: DEBUG
+#logging:
+#  level:
+#    org.hibernate.stat: DEBUG
+#    org.hibernate.SQL: DEBUG
+#    org.hibernate.cache: DEBUG
+#    org.springframework.jdbc.core.JdbcTemplate: DEBUG
+#    org.springframework.jdbc.core.StatementCreatorUtils: DEBUG
+#    org.springframework.transaction: DEBUG
+#    org.hibernate.type.descriptor.sql.BasicBinder: DEBUG
+#    org.hibernate.engine.transaction.internal.TransactionImpl: DEBUG
+#    level.net.ttddyy.dsproxy.listener: DEBUG
+#    net.ttddyy.dsproxy.listener.logging.SLF4JQueryLoggingListener: DEBUG

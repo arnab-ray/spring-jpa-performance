@@ -2,15 +2,14 @@ package io.arnab.spring_jpa_performance.query_gotchas.domain;
 
 import io.arnab.spring_jpa_performance.shared_kernel.Customer;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
-@Data
+@Getter
 @Entity
-@Table(name = "credit_card")
 public class CreditCard {
     @Id
     private String id;
@@ -29,6 +28,9 @@ public class CreditCard {
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
+    @Version
+    private Long version;
 
     public CreditCard() {}
 

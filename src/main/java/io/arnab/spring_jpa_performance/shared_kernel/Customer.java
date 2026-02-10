@@ -36,6 +36,9 @@ public class Customer implements Serializable {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+    @Version
+    private Long version;
+
     protected Customer() {}
 
     public Customer(String id, String firstName, String lastName, MobileNumber mobileNumber) {
@@ -45,7 +48,7 @@ public class Customer implements Serializable {
         this.mobileNumber = mobileNumber;
     }
 
-    public void updateCreditCards(List<CreditCard> creditCards) {
+    public void setCreditCards(List<CreditCard> creditCards) {
         this.creditCards = creditCards;
     }
 }

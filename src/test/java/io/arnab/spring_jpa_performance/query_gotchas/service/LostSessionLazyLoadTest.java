@@ -12,7 +12,7 @@ public class LostSessionLazyLoadTest extends BaseTest {
 
     @Test
     void testFetch() {
-        var creditCards = customerService.customerCreditCards("USR01");
+        var creditCards = customerService.getCreditCardsOfCustomer("USR01");
         assertThat(creditCards.size()).isEqualTo(2);
     }
 }
