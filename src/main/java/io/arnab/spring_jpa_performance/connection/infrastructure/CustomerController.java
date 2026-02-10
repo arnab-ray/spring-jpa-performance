@@ -42,4 +42,9 @@ public class CustomerController {
     public void createAndNotify(@RequestBody CreateCustomerDTO createCustomerDTO) {
         customerOnboardingService.createAndNotify(createCustomerDTO);
     }
+
+    @PostMapping("/v4")
+    public void createAndAnalyze(@RequestBody CreateCustomerDTO createCustomerDTO) {
+        customerOnboardingService.createAndIngestOntoDataLake(createCustomerDTO);
+    }
 }

@@ -45,9 +45,9 @@ spring:
         trace: false
         web-allow-others: false
 
-#decorator:
-#  datasource.flexy-pool.threshold.connection.acquire: -1
-#  datasource.flexy-pool.threshold.connection.lease: 0
+decorator:
+  datasource.flexy-pool.threshold.connection.acquire: -1
+  datasource.flexy-pool.threshold.connection.lease: 0
 
 #logging:
 #  level:

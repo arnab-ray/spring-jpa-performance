@@ -22,7 +22,7 @@ public class ConnectionBehaviourTest {
         var response = testRestTemplate
                 .postForEntity(
                         "/customer/v1",
-                        new CreateCustomerDTO("Gabbar", "Singh", "9008796768"),
+                        new CreateCustomerDTO("Gabbar", "Singh", "9008796768", 39),
                         Void.class);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -33,7 +33,7 @@ public class ConnectionBehaviourTest {
         var response = testRestTemplate
                 .postForEntity(
                         "/customer/v2",
-                        new CreateCustomerDTO("Gabbar", "Singh", "9008796768"),
+                        new CreateCustomerDTO("Gabbar", "Singh", "9008796768", 39),
                         Void.class);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -44,7 +44,18 @@ public class ConnectionBehaviourTest {
         var response = testRestTemplate
                 .postForEntity(
                         "/customer/v3",
-                        new CreateCustomerDTO("Gabbar", "Singh", "9008796768"),
+                        new CreateCustomerDTO("Gabbar", "Singh", "9008796768", 39),
+                        Void.class);
+
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+    }
+
+    @Test
+    void testNestedTransaction() {
+        var response = testRestTemplate
+                .postForEntity(
+                        "/customer/v4",
+                        new CreateCustomerDTO("Gabbar", "Singh", "9008796768", 39),
                         Void.class);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);

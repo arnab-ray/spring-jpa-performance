@@ -18,6 +18,7 @@ public class CustomerOnboardingService {
     private final BlockedMobileService blockedMobileService;
     private final NotificationService notificationService;
     private final CustomerRepository customerRepository;
+    private final DataLakeService dataLakeService;
 
     @Transactional
     public void createAccount(CreateCustomerDTO createCustomerDTO) {
@@ -57,5 +58,16 @@ public class CustomerOnboardingService {
             customerRepository.save(customer);
         }
         notificationService.notifyOnboarded(new MobileNumber(createCustomerDTO.mobileNumber()));
+    }
+
+    @Transactional
+    public void createAndIngestOntoDataLake(CreateCustomerDTO createCustomerDTO) {
+        var mobileNumber = new MobileNumber(createCustomerDTO.mobileNumber());
+        var account = customerRepository.findByMobileNumber(mobileNumber);
+        if (account.isEmpty()) {
+            var customer = new Customer(UUID.randomUUID().toString(), createCustomerDTO.firstName(), createCustomerDTO.lastName(), mobileNumber);
+            customerRepository.save(customer);
+        }
+        dataLakeService.publishAnonData(createCustomerDTO.age());
     }
 }
