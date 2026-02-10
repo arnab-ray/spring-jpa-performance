@@ -4,6 +4,14 @@ spring:
     driverClassName: org.h2.Driver
     username: sa
     password: password
+    hikari:
+#      auto-commit: false
+      idle-timeout: 10000
+      connection-timeout: 2000
+      maximum-pool-size: 5
+      minimum-idle: 5
+      max-lifetime: 1800000
+      ddl-auto: validate
 
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
@@ -36,19 +44,19 @@ spring:
         trace: false
         web-allow-others: false
 
-#decorator:
-#  datasource.flexy-pool.threshold.connection.acquire: -1
-#  datasource.flexy-pool.threshold.connection.lease: 0
+decorator:
+  datasource.flexy-pool.threshold.connection.acquire: -1
+  datasource.flexy-pool.threshold.connection.lease: 0
 
 logging:
   level:
     #org.hibernate.stat: DEBUG
     org.hibernate.SQL: DEBUG
     org.hibernate.cache: DEBUG
-    org.springframework.jdbc.core.JdbcTemplate: DEBUG
-    org.springframework.jdbc.core.StatementCreatorUtils: DEBUG
+    #org.springframework.jdbc.core.JdbcTemplate: DEBUG
+    #org.springframework.jdbc.core.StatementCreatorUtils: DEBUG
     #org.springframework.transaction: DEBUG
     #org.hibernate.type.descriptor.sql.BasicBinder: DEBUG
-    #org.hibernate.engine.transaction.internal.TransactionImpl: DEBUG
+    org.hibernate.engine.transaction.internal.TransactionImpl: DEBUG
     #level.net.ttddyy.dsproxy.listener: DEBUG
-    net.ttddyy.dsproxy.listener.logging.SLF4JQueryLoggingListener: DEBUG
+    #net.ttddyy.dsproxy.listener.logging.SLF4JQueryLoggingListener: DEBUG
