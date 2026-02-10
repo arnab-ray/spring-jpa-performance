@@ -12,13 +12,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DirtiesContext
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class CustomerControllerTest {
+public class ConnectionBehaviourTest {
 
     @Autowired
     private TestRestTemplate testRestTemplate;
 
     @Test
-    void testCreateCustomer() {
+    void testConnectionHoldDuringViewRendering() {
         var response = testRestTemplate
                 .postForEntity(
                         "/customer/v1",
@@ -29,7 +29,7 @@ public class CustomerControllerTest {
     }
 
     @Test
-    void testValidateCreateCustomer() {
+    void testConnectionHoldPriorToDBOperations() {
         var response = testRestTemplate
                 .postForEntity(
                         "/customer/v2",
@@ -40,7 +40,7 @@ public class CustomerControllerTest {
     }
 
     @Test
-    void testCreateAndNotifyCustomer() {
+    void testConnectionHoldPostDBOperations() {
         var response = testRestTemplate
                 .postForEntity(
                         "/customer/v3",

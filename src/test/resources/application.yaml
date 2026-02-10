@@ -17,13 +17,16 @@ spring:
       hibernate.show_sql: true
       hibernate.format_sql: false
       hibernate.use_sql_comments: true
-      hibernate.jdbc.batch_size: 20
       hibernate.cache.use_second_level_cache: false
       hibernate.cache.use_query_cache: false
-      hibernate.generate_statistics: false
+      hibernate.generate_statistics: true
       jakarta.persistence.query.timeout: 5000
       org.hibernate.envers.audit_table_suffix: _history
       hibernate.jdbc.time_zone: Asia/Kolkata
+#      hibernate.jdbc.batch_size: 5
+#      hibernate.order_inserts: true
+#      hibernate.order_updates: true
+#      hibernate.batch_versioned_data: true
 
   h2:
     console:
@@ -33,11 +36,19 @@ spring:
         trace: false
         web-allow-others: false
 
-decorator:
-  datasource.flexy-pool.threshold.connection.acquire: -1
-  datasource.flexy-pool.threshold.connection.lease: 0
+#decorator:
+#  datasource.flexy-pool.threshold.connection.acquire: -1
+#  datasource.flexy-pool.threshold.connection.lease: 0
 
 logging:
-  level.org.hibernate.stat: DEBUG
-  level.org.hibernate.SQL: DEBUG
-  level.org.hibernate.cache: DEBUG
+  level:
+    org.hibernate.stat: DEBUG
+    #org.hibernate.SQL: DEBUG
+    org.hibernate.cache: DEBUG
+    org.springframework.jdbc.core.JdbcTemplate: DEBUG
+    org.springframework.jdbc.core.StatementCreatorUtils: DEBUG
+    #org.springframework.transaction: DEBUG
+    #org.hibernate.type.descriptor.sql.BasicBinder: DEBUG
+    #org.hibernate.engine.transaction.internal.TransactionImpl: DEBUG
+    level.net.ttddyy.dsproxy.listener: DEBUG
+    net.ttddyy.dsproxy.listener.logging.SLF4JQueryLoggingListener: DEBUG
