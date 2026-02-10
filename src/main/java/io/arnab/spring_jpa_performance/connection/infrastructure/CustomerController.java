@@ -1,8 +1,8 @@
 package io.arnab.spring_jpa_performance.connection.infrastructure;
 
+import io.arnab.spring_jpa_performance.connection.domain.CreateCustomerDTO;
 import io.arnab.spring_jpa_performance.shared_kernel.MobileNumber;
 import io.arnab.spring_jpa_performance.connection.service.CustomerOnboardingService;
-import io.arnab.spring_jpa_performance.query_gotchas.domain.CreateCustomerDTO;
 import io.arnab.spring_jpa_performance.connection.service.NotificationService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

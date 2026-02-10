@@ -1,4 +1,4 @@
-package io.arnab.spring_jpa_performance.query_gotchas.domain;
+package io.arnab.spring_jpa_performance.connection.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

@@ -1,6 +1,6 @@
 package io.arnab.spring_jpa_performance.connection.infrastructure;
 
-import io.arnab.spring_jpa_performance.query_gotchas.domain.CreateCustomerDTO;
+import io.arnab.spring_jpa_performance.connection.domain.CreateCustomerDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

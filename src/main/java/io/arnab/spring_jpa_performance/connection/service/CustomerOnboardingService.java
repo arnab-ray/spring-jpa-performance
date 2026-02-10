@@ -3,7 +3,7 @@ package io.arnab.spring_jpa_performance.connection.service;
 import io.arnab.spring_jpa_performance.shared_kernel.Customer;
 import io.arnab.spring_jpa_performance.shared_kernel.CustomerRepository;
 import io.arnab.spring_jpa_performance.shared_kernel.MobileNumber;
-import io.arnab.spring_jpa_performance.query_gotchas.domain.CreateCustomerDTO;
+import io.arnab.spring_jpa_performance.connection.domain.CreateCustomerDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

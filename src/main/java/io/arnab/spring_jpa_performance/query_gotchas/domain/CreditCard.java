@@ -19,7 +19,7 @@ public class CreditCard {
 
     private String issuer;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
