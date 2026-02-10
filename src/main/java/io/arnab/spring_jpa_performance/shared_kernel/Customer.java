@@ -17,10 +17,8 @@ public class Customer implements Serializable {
     @Id
     private String id;
 
-    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "last_name")
     private String lastName;
 
     @Embedded

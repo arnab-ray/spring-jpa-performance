@@ -1,7 +1,5 @@
 package io.arnab.spring_jpa_performance.query_gotchas.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import io.arnab.spring_jpa_performance.shared_kernel.Customer;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -27,13 +25,9 @@ public class CreditCard {
     private CardState state;
 
     @CreationTimestamp
-    @JsonProperty("created_at")
-    @JsonFormat(timezone = "Asia/Kolkata")
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
-    @JsonProperty("updated_at")
-    @JsonFormat(timezone = "Asia/Kolkata")
     private LocalDateTime updatedAt;
 
     public CreditCard() {}
