@@ -51,4 +51,4 @@ logging:
     #org.hibernate.type.descriptor.sql.BasicBinder: DEBUG
     #org.hibernate.engine.transaction.internal.TransactionImpl: DEBUG
     #level.net.ttddyy.dsproxy.listener: DEBUG
-    #net.ttddyy.dsproxy.listener.logging.SLF4JQueryLoggingListener: DEBUG
+    net.ttddyy.dsproxy.listener.logging.SLF4JQueryLoggingListener: DEBUG
