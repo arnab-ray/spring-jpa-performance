@@ -19,7 +19,7 @@ spring:
       hibernate.use_sql_comments: true
       hibernate.cache.use_second_level_cache: false
       hibernate.cache.use_query_cache: false
-      hibernate.generate_statistics: true
+      hibernate.generate_statistics: false
       jakarta.persistence.query.timeout: 5000
       org.hibernate.envers.audit_table_suffix: _history
       hibernate.jdbc.time_zone: Asia/Kolkata
@@ -42,13 +42,13 @@ spring:
 
 logging:
   level:
-    org.hibernate.stat: DEBUG
-    #org.hibernate.SQL: DEBUG
+    #org.hibernate.stat: DEBUG
+    org.hibernate.SQL: DEBUG
     org.hibernate.cache: DEBUG
     org.springframework.jdbc.core.JdbcTemplate: DEBUG
     org.springframework.jdbc.core.StatementCreatorUtils: DEBUG
     #org.springframework.transaction: DEBUG
     #org.hibernate.type.descriptor.sql.BasicBinder: DEBUG
     #org.hibernate.engine.transaction.internal.TransactionImpl: DEBUG
-    level.net.ttddyy.dsproxy.listener: DEBUG
-    net.ttddyy.dsproxy.listener.logging.SLF4JQueryLoggingListener: DEBUG
+    #level.net.ttddyy.dsproxy.listener: DEBUG
+    #net.ttddyy.dsproxy.listener.logging.SLF4JQueryLoggingListener: DEBUG

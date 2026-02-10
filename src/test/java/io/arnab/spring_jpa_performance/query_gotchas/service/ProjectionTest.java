@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CreditCardServiceTest extends BaseTest {
+public class ProjectionTest extends BaseTest {
 
     @Autowired
     private CreditCardService creditCardService;

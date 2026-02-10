@@ -8,9 +8,11 @@ import io.arnab.spring_jpa_performance.shared_kernel.MobileNumber;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 
 import java.util.List;
 
+@DirtiesContext
 @SpringBootTest
 public class BaseTest {
     @Autowired

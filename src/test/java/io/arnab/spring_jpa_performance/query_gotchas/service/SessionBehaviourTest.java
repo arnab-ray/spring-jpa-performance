@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CreditCardBenefitServiceTest extends BaseTest {
+public class SessionBehaviourTest extends BaseTest {
 
     @Autowired
     private CardBenefitRepository cardBenefitRepository;
